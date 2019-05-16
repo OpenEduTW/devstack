@@ -13,7 +13,11 @@ version: "2.1"
 services:
   # Third-party services
   chrome:
-    container_name: edx.devstack.chrome
+    container_name: chrome.local.edx.org
+    network:
+      devstack_default:
+        aliases:
+          - edx.devstack.chrome
     hostname: chrome.devstack.edx
     image: edxops/chrome:${OPENEDX_RELEASE:-latest}
     shm_size: 2g
